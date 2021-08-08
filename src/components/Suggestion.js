@@ -2,7 +2,10 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const Suggestion = () => {
-  const { result } = useContext(GlobalContext);
+  const { result, height, weight } = useContext(GlobalContext);
+
+  const bbIdeal = height - 110;
+  const bbButuh = bbIdeal - weight;
 
   return (
     <div className="mt-10 bg-blue-400 w-5/6 text-white mx-auto p-4 rounded-xl">
@@ -17,6 +20,7 @@ const Suggestion = () => {
       ) : (
         ""
       )}
+      <h1>Need {bbButuh} Kg to ideal BMI</h1>
     </div>
   );
 };
