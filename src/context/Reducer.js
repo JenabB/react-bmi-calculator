@@ -15,7 +15,7 @@ export default (state, action) => {
     case "ADD_RESULT":
       return {
         ...state,
-        result: [...state.result, action.payload],
+        result: action.payload,
       };
 
     default:

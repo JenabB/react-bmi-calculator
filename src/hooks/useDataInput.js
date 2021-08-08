@@ -8,7 +8,7 @@ export const useWeightInput = (weight) => {
   const validateWeigthtData = (weight) => {
     if (weight < 600) {
       setWeightInput(weight);
-      getWeight(weight);
+      getWeight(parseInt(weight));
     } else {
       alert("you're not human");
     }
@@ -24,7 +24,7 @@ export const useHeightInput = (height) => {
   const validateHeightData = (height) => {
     if (height < 2720) {
       setHeightInput(height);
-      getHeight(height);
+      getHeight(parseInt(height));
     } else {
       alert("you're not human");
     }

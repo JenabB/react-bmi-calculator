@@ -5,7 +5,8 @@ import Reducer from "./Reducer";
 const initialState = {
   weight: 0,
   height: 0,
-  result: localStorage.getItem("BMI") ? localStorage.getItem("BMI") : [],
+  result: 0,
+  resultArray: localStorage.getItem("BMI") ? localStorage.getItem("BMI") : [],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -14,7 +15,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   useEffect(() => {
-    localStorage.setItem("BMI", JSON.stringify(state.result));
+    localStorage.setItem("BMI", JSON.stringify(state.resultArray));
   }, [state]);
 
   function getWeight(weight) {
@@ -34,7 +35,7 @@ export const GlobalProvider = ({ children }) => {
   function addResult(result) {
     dispatch({
       type: "ADD_RESULT",
-      Payload: result,
+      payload: result,
     });
   }
 
@@ -44,6 +45,7 @@ export const GlobalProvider = ({ children }) => {
         weight: state.weight,
         height: state.height,
         result: state.result,
+        resultArray: state.resultArray,
         getWeight,
         getHeight,
         addResult,
