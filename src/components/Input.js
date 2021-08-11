@@ -8,6 +8,7 @@ import {
 import Select from "react-select";
 
 const Input = () => {
+  // eslint-disable-next-line no-unused-vars
   const [gender, setGender] = useGenderInput("male");
   const [age, setAge] = useAgeInput(0);
   const [weight, setWeight] = useWeightInput(0);
