@@ -3,7 +3,10 @@ import { GlobalContext } from "../context/GlobalState";
 import Suggestion from "./Suggestion";
 
 const Result = () => {
-  const { result } = useContext(GlobalContext);
+  const { weight, height, result } = useContext(GlobalContext);
+
+  const bbIdeal = height - 110;
+  const bbButuh = bbIdeal - weight;
 
   return (
     <div>
@@ -14,15 +17,18 @@ const Result = () => {
               {result}
             </h1>
             {result < 18.5 ? (
-              <h1>Berat badan kurang</h1>
+              <h1>Less weight</h1>
             ) : result >= 18.5 && result <= 22.9 ? (
-              <h1>Berat badan normal</h1>
+              <h1>Normal weight</h1>
             ) : result >= 23 && result <= 29.9 ? (
-              <h1>Berat badan berlebih</h1>
+              <h1>Excess weight</h1>
             ) : (
-              <h1>Obesitas</h1>
+              <h1>Obesity</h1>
             )}
           </div>
+          <h1 className="mt-4 text-center">
+            Need <b>{bbButuh} Kg</b> to ideal BMI
+          </h1>
           <Suggestion />
         </div>
       ) : (

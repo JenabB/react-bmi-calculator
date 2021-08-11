@@ -1,6 +1,21 @@
 import { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
+export const useAgeInput = (age) => {
+  const [ageInput, setAgeInput] = useState(age);
+
+  const { getAge } = useContext(GlobalContext);
+  const validateAgeData = (age) => {
+    if (age > 0) {
+      setAgeInput(age);
+      getAge(parseInt(age));
+    } else {
+      console.log("please insert age");
+    }
+  };
+  return [ageInput, validateAgeData];
+};
+
 export const useWeightInput = (weight) => {
   const [weightInput, setWeightInput] = useState(weight);
 

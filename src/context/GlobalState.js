@@ -1,12 +1,14 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer } from "react";
 
 import Reducer from "./Reducer";
 
 const initialState = {
+  gender: "male",
+  age: 0,
   weight: 0,
   height: 0,
   result: 0,
-  resultArray: localStorage.getItem("BMI") ? localStorage.getItem("BMI") : [],
+  history: localStorage.getItem("BMI") ? localStorage.getItem("BMI") : [],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -14,9 +16,19 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
-  useEffect(() => {
-    localStorage.setItem("BMI", JSON.stringify(state.resultArray));
-  }, [state]);
+  function getGender(gender) {
+    dispatch({
+      type: "GET_GENDER",
+      payload: gender,
+    });
+  }
+
+  function getAge(age) {
+    dispatch({
+      type: "GET_AGE",
+      payload: age,
+    });
+  }
 
   function getWeight(weight) {
     dispatch({
@@ -39,16 +51,28 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function createHistory(data) {
+    dispatch({
+      type: "CREATE_HISTORY",
+      payload: data,
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
+        gender: state.gender,
+        age: state.age,
         weight: state.weight,
         height: state.height,
         result: state.result,
-        resultArray: state.resultArray,
+        history: state.history,
+        getGender,
+        getAge,
         getWeight,
         getHeight,
         addResult,
+        createHistory,
       }}
     >
       {children}

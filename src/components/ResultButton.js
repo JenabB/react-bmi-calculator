@@ -19,7 +19,7 @@ const ResultButton = () => {
           className="bg-blue-400 text-white inline-block px-4 py-2 rounded-full"
           onClick={handleClick}
         >
-          Result
+          Count
         </button>
       </div>
     </div>
