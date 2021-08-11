@@ -1,6 +1,21 @@
 import { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
+export const useGenderInput = (gender) => {
+  const [genderInput, setGenderInput] = useState(gender);
+
+  const { getGender } = useContext(GlobalContext);
+  const validateGenderData = (gender) => {
+    if (gender) {
+      setGenderInput(gender);
+      getGender(gender);
+    } else {
+      console.log("please insert age");
+    }
+  };
+  return [genderInput, validateGenderData];
+};
+
 export const useAgeInput = (age) => {
   const [ageInput, setAgeInput] = useState(age);
 

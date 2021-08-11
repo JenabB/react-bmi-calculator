@@ -13,15 +13,13 @@ const ResultButton = () => {
   };
 
   return (
-    <div className="text-center mt-20">
-      <div>
-        <button
-          className="bg-blue-400 text-white inline-block px-4 py-2 rounded-full"
-          onClick={handleClick}
-        >
-          Count
-        </button>
-      </div>
+    <div className="floating-button fixed bottom-10">
+      <button
+        className="bg-blue-400 text-white p-4 rounded-full"
+        onClick={handleClick}
+      >
+        Count
+      </button>
     </div>
   );
 };
