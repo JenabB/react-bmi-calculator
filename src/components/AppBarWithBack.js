@@ -9,8 +9,8 @@ const AppBarWithBack = () => {
   };
 
   return (
-    <div className="bg-blue-400 shadow-lg sticky z-10 top-0 text-center text-white p-4">
-      <button onClick={handleBack}>Back</button>
+    <div className="bg-blue-400 shadow-lg sticky z-10 top-0 text-white p-4">
+      <button onClick={handleBack}>&#8592;</button>
     </div>
   );
 };

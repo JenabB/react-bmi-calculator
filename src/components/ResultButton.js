@@ -8,6 +8,7 @@ const ResultButton = () => {
     const heightInCm = height / 100;
     const heightInSquare = heightInCm * heightInCm;
     const bmi = weight / heightInSquare;
+
     addResult(Math.round(bmi));
   };
 
