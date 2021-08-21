@@ -21,12 +21,12 @@ const ResultButton = () => {
   });
 
   useEffect(() => {
-    if (weight !== 0) {
+    if (weight !== 0 && height !== 0) {
       setIsResult(true);
     } else {
       setIsResult(false);
     }
-  }, [weight]);
+  }, [height, weight]);
 
   return (
     <Link to="/result">
