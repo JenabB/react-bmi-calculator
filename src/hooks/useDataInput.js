@@ -5,6 +5,7 @@ export const useGenderInput = (gender) => {
   const [genderInput, setGenderInput] = useState(gender);
 
   const { getGender } = useContext(GlobalContext);
+
   const validateGenderData = (gender) => {
     if (gender) {
       setGenderInput(gender);
