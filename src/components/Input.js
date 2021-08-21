@@ -4,10 +4,11 @@ import {
   useAgeInput,
   useHeightInput,
   useWeightInput,
-} from "../hooks/useDataInput";
+} from "../hooks/useDataInput"; //custom hook
 import Select from "react-select";
 
 const Input = () => {
+  //using custom hooks for validation
   // eslint-disable-next-line no-unused-vars
   const [gender, setGender] = useGenderInput("male");
   const [age, setAge] = useAgeInput(0);
@@ -37,6 +38,7 @@ const Input = () => {
           <h1>Age</h1>
           <input
             type="number"
+            min="0"
             style={{ width: "80px" }}
             className=" bg-gray-300 rounded-full px-3 py-1"
             value={age}
@@ -52,6 +54,7 @@ const Input = () => {
           <h1>Weight (Kg)</h1>
           <input
             type="number"
+            min="0"
             style={{ width: "100px" }}
             className="bg-gray-300 rounded-full px-3 py-1"
             value={weight}

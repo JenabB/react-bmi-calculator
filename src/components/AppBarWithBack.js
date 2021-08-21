@@ -7,6 +7,7 @@ const AppBarWithBack = () => {
   const { getWeight, getHeight } = useContext(GlobalContext);
 
   const handleBack = () => {
+    //take weight & height back to 0
     getWeight(0);
     getHeight(0);
     history.goBack();

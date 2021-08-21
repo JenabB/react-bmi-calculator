@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import AddToFavoriteButton from "./AddToFavoriteButton";
 import Suggestion from "./Suggestion";
 
 const Result = () => {
   const { weight, height, result } = useContext(GlobalContext);
 
-  const bbIdeal = height - 110;
-  const bbButuh = bbIdeal - weight;
+  const weightIdeal = height - 110;
+  const weightNeed = weightIdeal - weight;
 
   return (
     <div>
@@ -27,9 +28,10 @@ const Result = () => {
             )}
           </div>
           <h1 className="mt-4 text-center">
-            Need <b>{bbButuh} Kg</b> to ideal BMI
+            Need <b>{weightNeed} Kg</b> to ideal BMI
           </h1>
           <Suggestion />
+          <AddToFavoriteButton />
         </div>
       ) : (
         ""
