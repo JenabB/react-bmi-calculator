@@ -37,7 +37,8 @@ const Input = () => {
           <h1>Age</h1>
           <input
             type="number"
-            className="w-2/4 bg-gray-300 rounded-full px-3 py-1"
+            style={{ width: "80px" }}
+            className=" bg-gray-300 rounded-full px-3 py-1"
             value={age}
             onChange={(e) => {
               setAge(e.target.value);
@@ -51,7 +52,8 @@ const Input = () => {
           <h1>Weight (Kg)</h1>
           <input
             type="number"
-            className="w-1/2 bg-gray-300 rounded-full px-3 py-1"
+            style={{ width: "100px" }}
+            className="bg-gray-300 rounded-full px-3 py-1"
             value={weight}
             onChange={(e) => {
               setWeight(e.target.value);
@@ -62,7 +64,8 @@ const Input = () => {
           <h1>Height (Cm)</h1>
           <input
             type="number"
-            className="w-1/2 bg-gray-300 rounded-full px-3 py-1"
+            style={{ width: "100px" }}
+            className="bg-gray-300 rounded-full px-3 py-1"
             value={height}
             onChange={(e) => {
               setHeight(e.target.value);

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-
+import { GlobalContext } from "../context/GlobalState";
 const AppBarWithBack = () => {
   let history = useHistory();
 
+  const { getWeight, getHeight } = useContext(GlobalContext);
+
   const handleBack = () => {
+    getWeight(0);
+    getHeight(0);
     history.goBack();
   };
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
 const ResultButton = () => {
   const [isResult, setIsResult] = useState(false);
   const { weight, height, addResult, result } = useContext(GlobalContext);
@@ -32,19 +34,24 @@ const ResultButton = () => {
     <Link to="/result">
       <div className="floating-button fixed bottom-10">
         {isResult ? (
-          <button
-            className="result-button bg-blue-400 text-white p-4 rounded-full"
+          <motion.button
+            whileHover={{
+              scale: 1.5,
+              transition: { duration: 0.3 },
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="bg-blue-400 text-white p-4 rounded-full"
             onClick={handleClick}
           >
             Count
-          </button>
+          </motion.button>
         ) : (
-          <button
-            className="result-button bg-gray-400 text-white p-4 rounded-full"
+          <motion.button
+            className="bg-gray-400 cursor-default text-white p-4 rounded-full"
             disabled
           >
             Count
-          </button>
+          </motion.button>
         )}
       </div>
     </Link>

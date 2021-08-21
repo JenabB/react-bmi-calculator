@@ -13,9 +13,9 @@ const Result = () => {
       {result ? (
         <div>
           <div className="flex justify-center mt-20">
-            <h1 className="bg-blue-300 px-4 text-white rounded-lg mx-4">
+            <div className="bg-blue-300 px-4 text-white rounded-lg mx-4">
               {result}
-            </h1>
+            </div>
             {result < 18.5 ? (
               <h1>Less weight</h1>
             ) : result >= 18.5 && result <= 22.9 ? (
