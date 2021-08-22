@@ -31,10 +31,22 @@ export default (state, action) => {
         result: action.payload,
       };
 
+    case "GET_STATUS":
+      return {
+        ...state,
+        status: action.payload,
+      };
+
+    case "GET_NEED":
+      return {
+        ...state,
+        need: action.payload,
+      };
+
     case "ADD_TO_SAVED":
       return {
         ...state,
-        saved: [...state.saved, action.payload],
+        saved: [action.payload, ...state.saved],
       };
 
     default:

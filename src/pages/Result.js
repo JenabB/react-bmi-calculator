@@ -5,10 +5,7 @@ import Suggestion from "../components/Suggestion";
 import { GlobalContext } from "../context/GlobalState";
 
 const Result = () => {
-  const { weight, height, result } = useContext(GlobalContext);
-
-  const bbIdeal = height - 110;
-  const bbButuh = bbIdeal - weight;
+  const { result, need, status } = useContext(GlobalContext);
 
   return (
     <div>
@@ -20,19 +17,11 @@ const Result = () => {
               {result}
             </h1>
             <div className="mt-4">
-              {result < 18.5 ? (
-                <h1>Less weight</h1>
-              ) : result >= 18.5 && result <= 22.9 ? (
-                <h1>Normal weight</h1>
-              ) : result >= 23 && result <= 29.9 ? (
-                <h1>Excess weight</h1>
-              ) : (
-                <h1>Obesity</h1>
-              )}
+              <h1>{status}</h1>
             </div>
           </div>
           <h1 className="mt-4 text-center">
-            Need <b>{bbButuh} Kg</b> to ideal BMI
+            Need <b>{need} Kg</b> to ideal BMI
           </h1>
           <Suggestion />
           <AddToFavoriteButton />

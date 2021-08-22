@@ -2,13 +2,16 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const AddToFavoriteButton = () => {
-  const { addToSaved, result } = useContext(GlobalContext);
+  const { result, status, need, addToSaved } = useContext(GlobalContext);
 
   const handleAdd = (e) => {
     e.preventDefault();
     addToSaved({
-      id: Math.random(),
+      id: "_" + Math.random().toString(36).substr(2, 9),
+      date: new Date(),
       result: result,
+      status: status,
+      need: need,
     });
   };
 

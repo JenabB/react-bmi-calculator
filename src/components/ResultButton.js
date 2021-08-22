@@ -5,14 +5,31 @@ import { Link } from "react-router-dom";
 
 const ResultButton = () => {
   const [isResult, setIsResult] = useState(false);
-  const { weight, height, addResult, result } = useContext(GlobalContext);
+  const { weight, height, addResult, getNeed, getStatus, result } =
+    useContext(GlobalContext);
 
   const handleClick = () => {
     const heightInCm = height / 100;
     const heightInSquare = heightInCm * heightInCm;
     const bmi = weight / heightInSquare;
+    const finalBmi = Math.round(bmi);
+    //weight need
+    const weightIdeal = height - 110;
+    const weightNeed = weightIdeal - weight;
+    getNeed(weightNeed);
 
-    addResult(Math.round(bmi));
+    //status
+    if (finalBmi < 18.5) {
+      getStatus("Less weight");
+    } else if (finalBmi >= 18.5 && finalBmi <= 22.9) {
+      getStatus("Normal weight");
+    } else if (finalBmi >= 23 && result <= 29.9) {
+      getStatus("Excess weight");
+    } else {
+      getStatus("Obesity");
+    }
+
+    addResult(finalBmi);
   };
 
   console.log({
@@ -32,7 +49,7 @@ const ResultButton = () => {
 
   return (
     <Link to="/result">
-      <div className="floating-button fixed bottom-10">
+      <div className="z-10 floating-button fixed bottom-10">
         {isResult ? (
           <motion.button
             whileHover={{
