@@ -15,7 +15,10 @@ const AppBarWithBack = () => {
 
   return (
     <div className="bg-blue-400 shadow-lg sticky z-10 top-0 text-white p-4">
-      <button onClick={handleBack}>&#8592;</button>
+      <button onClick={handleBack}>
+        {" "}
+        <span className="material-icons md-24">arrow_back</span>
+      </button>
     </div>
   );
 };

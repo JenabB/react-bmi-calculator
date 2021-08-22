@@ -8,7 +8,9 @@ const initialState = {
   weight: 0,
   height: 0,
   result: 0,
-  history: localStorage.getItem("BMI") ? localStorage.getItem("BMI") : [],
+  saved: localStorage.getItem("saved")
+    ? JSON.parse(localStorage.getItem("saved"))
+    : [],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -51,10 +53,10 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function createHistory(data) {
+  function addToSaved(data) {
     dispatch({
-      type: "CREATE_HISTORY",
-      payload: data,
+      type: "ADD_TO_SAVED",
+      payload: localStorage.setItem("saved", JSON.stringify(data)),
     });
   }
 
@@ -66,13 +68,13 @@ export const GlobalProvider = ({ children }) => {
         weight: state.weight,
         height: state.height,
         result: state.result,
-        history: state.history,
+        saved: state.saved,
         getGender,
         getAge,
         getWeight,
         getHeight,
         addResult,
-        createHistory,
+        addToSaved,
       }}
     >
       {children}

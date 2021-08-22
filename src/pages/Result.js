@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import AddToFavoriteButton from "../components/AddToFavoriteButton";
 import AppBarWithBack from "../components/AppBarWithBack";
 import Suggestion from "../components/Suggestion";
 import { GlobalContext } from "../context/GlobalState";
@@ -34,6 +35,7 @@ const Result = () => {
             Need <b>{bbButuh} Kg</b> to ideal BMI
           </h1>
           <Suggestion />
+          <AddToFavoriteButton />
         </div>
       ) : (
         ""

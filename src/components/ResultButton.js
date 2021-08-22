@@ -43,14 +43,14 @@ const ResultButton = () => {
             className="bg-blue-400 text-white p-4 rounded-full"
             onClick={handleClick}
           >
-            Count
+            <span className="material-icons md-24">science</span>
           </motion.button>
         ) : (
           <motion.button
             className="bg-gray-400 cursor-default text-white p-4 rounded-full"
             disabled
           >
-            Count
+            <span className="material-icons md-24">science</span>
           </motion.button>
         )}
       </div>

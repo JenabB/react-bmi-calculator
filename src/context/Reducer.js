@@ -31,10 +31,10 @@ export default (state, action) => {
         result: action.payload,
       };
 
-    case "CREATE_HISTORY":
+    case "ADD_TO_SAVED":
       return {
         ...state,
-        history: [...state.history, action.payload],
+        saved: [...state.saved, action.payload],
       };
 
     default:
