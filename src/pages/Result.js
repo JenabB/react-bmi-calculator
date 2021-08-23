@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AddToFavoriteButton from "../components/AddToFavoriteButton";
 import AppBarWithBack from "../components/AppBarWithBack";
 import Suggestion from "../components/Suggestion";
 import { GlobalContext } from "../context/GlobalState";
 
 const Result = () => {
-  const { result, need, status } = useContext(GlobalContext);
+  const { result, gender, need, status } = useContext(GlobalContext);
+  const [byGender, setByGender] = useState("");
+
+  useEffect(() => {
+    if (gender === "male") {
+      setByGender("male normally have 23-25");
+    } else {
+      setByGender("female normally have 20-22");
+    }
+  }, [gender]);
 
   return (
     <div>
@@ -23,6 +32,7 @@ const Result = () => {
           <h1 className="mt-4 text-center">
             Need <b>{need} Kg</b> to ideal BMI
           </h1>
+          <h2 className="text-center">{byGender}</h2>
           <Suggestion />
           <AddToFavoriteButton />
         </div>

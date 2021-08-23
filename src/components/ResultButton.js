@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const ResultButton = () => {
   const [isResult, setIsResult] = useState(false);
+
   const { weight, height, addResult, getNeed, getStatus, result } =
     useContext(GlobalContext);
 
@@ -16,6 +17,7 @@ const ResultButton = () => {
     //weight need
     const weightIdeal = height - 110;
     const weightNeed = weightIdeal - weight;
+
     getNeed(weightNeed);
 
     //status
@@ -31,13 +33,6 @@ const ResultButton = () => {
 
     addResult(finalBmi);
   };
-
-  console.log({
-    height: height,
-    weight: weight,
-    result: result,
-    isResult: isResult,
-  });
 
   useEffect(() => {
     if (weight !== 0 && height !== 0) {

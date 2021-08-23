@@ -3,7 +3,6 @@ import Reducer from "./Reducer";
 
 const initialState = {
   gender: "male",
-  age: 0,
   weight: 0,
   height: 0,
   result: 0,
@@ -29,13 +28,6 @@ export const GlobalProvider = (props) => {
     dispatch({
       type: "GET_GENDER",
       payload: gender,
-    });
-  }
-
-  function getAge(age) {
-    dispatch({
-      type: "GET_AGE",
-      payload: age,
     });
   }
 
@@ -85,7 +77,6 @@ export const GlobalProvider = (props) => {
     <GlobalContext.Provider
       value={{
         gender: state.gender,
-        age: state.age,
         weight: state.weight,
         height: state.height,
         result: state.result,
@@ -93,13 +84,11 @@ export const GlobalProvider = (props) => {
         need: state.need,
         saved: state.saved,
         getGender,
-        getAge,
         getWeight,
         getHeight,
         addResult,
         getStatus,
         getNeed,
-
         addToSaved,
       }}
     >

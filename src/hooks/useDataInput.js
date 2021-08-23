@@ -17,26 +17,11 @@ export const useGenderInput = (gender) => {
   return [genderInput, validateGenderData];
 };
 
-export const useAgeInput = (age) => {
-  const [ageInput, setAgeInput] = useState(age);
-
-  const { getAge } = useContext(GlobalContext);
-  const validateAgeData = (age) => {
-    if (age > 0) {
-      setAgeInput(age);
-      getAge(parseInt(age));
-    } else {
-      console.log("please insert age");
-    }
-  };
-  return [ageInput, validateAgeData];
-};
-
 export const useWeightInput = (weight) => {
   const [weightInput, setWeightInput] = useState(weight);
 
   const { getWeight } = useContext(GlobalContext);
-  const validateWeigthtData = (weight) => {
+  const validateWeighttData = (weight) => {
     if (weight < 600) {
       setWeightInput(weight);
       getWeight(parseInt(weight));
@@ -44,7 +29,7 @@ export const useWeightInput = (weight) => {
       alert("you're not human");
     }
   };
-  return [weightInput, validateWeigthtData];
+  return [weightInput, validateWeighttData];
 };
 
 export const useHeightInput = (height) => {

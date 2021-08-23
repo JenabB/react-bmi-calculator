@@ -7,12 +7,6 @@ export default (state, action) => {
         gender: action.payload,
       };
 
-    case "GET_AGE":
-      return {
-        ...state,
-        age: action.payload,
-      };
-
     case "GET_WEIGHT":
       return {
         ...state,
