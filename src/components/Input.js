@@ -45,6 +45,7 @@ const Input = () => {
           <h1>Height (Cm)</h1>
           <input
             type="number"
+            min="0"
             style={{ width: "100px" }}
             className="bg-gray-300 rounded-full px-3 py-1"
             value={height}

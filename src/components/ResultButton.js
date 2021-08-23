@@ -35,7 +35,7 @@ const ResultButton = () => {
   };
 
   useEffect(() => {
-    if (weight !== 0 && height !== 0) {
+    if (weight > 0 && height > 0) {
       setIsResult(true);
     } else {
       setIsResult(false);
