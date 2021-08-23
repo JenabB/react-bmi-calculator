@@ -4,8 +4,8 @@ import AppBarWithBack from "../components/AppBarWithBack";
 import { GlobalContext } from "../context/GlobalState";
 
 const Saved = () => {
-  const { saved } = useContext(GlobalContext);
-  console.log(saved);
+  const { saved, removeFromSaved } = useContext(GlobalContext);
+
   return (
     <div>
       <AppBarWithBack />
@@ -20,6 +20,7 @@ const Saved = () => {
                 </p>
                 <h3>need {data.need} Kg</h3>
                 <h4>{data.status}</h4>
+                <button onClick={() => removeFromSaved(data.id)}>Remove</button>
               </div>
             ))}
           </div>

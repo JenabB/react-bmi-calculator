@@ -43,6 +43,12 @@ export default (state, action) => {
         saved: [action.payload, ...state.saved],
       };
 
+    case "REMOVE_FROM_SAVED":
+      return {
+        ...state,
+        saved: state.saved.filter((save) => save.id !== action.payload),
+      };
+
     default:
       return state;
   }

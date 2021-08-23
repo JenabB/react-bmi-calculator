@@ -73,6 +73,13 @@ export const GlobalProvider = (props) => {
     });
   }
 
+  function removeFromSaved(id) {
+    dispatch({
+      type: "REMOVE_FROM_SAVED",
+      payload: id,
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -90,6 +97,7 @@ export const GlobalProvider = (props) => {
         getStatus,
         getNeed,
         addToSaved,
+        removeFromSaved,
       }}
     >
       {props.children}
