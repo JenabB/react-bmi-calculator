@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import Swal from "sweetalert2";
 
 const AddToFavoriteButton = () => {
   const { result, status, need, addToSaved } = useContext(GlobalContext);
@@ -12,6 +13,11 @@ const AddToFavoriteButton = () => {
       result: result,
       status: status,
       need: need,
+    });
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Result saved",
     });
   };
 

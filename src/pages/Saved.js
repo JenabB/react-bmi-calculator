@@ -20,7 +20,12 @@ const Saved = () => {
                 </p>
                 <h3>need {data.need} Kg</h3>
                 <h4>{data.status}</h4>
-                <button onClick={() => removeFromSaved(data.id)}>Remove</button>
+                <button
+                  className="bg-red-600 text-white px-2 py-1 rounded-lg mt-4"
+                  onClick={() => removeFromSaved(data.id)}
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
